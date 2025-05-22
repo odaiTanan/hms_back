@@ -9,6 +9,7 @@ import {
   logoutPatient,
   patientRegister,
   getDoctorDetails,
+  deleteDoctor,
 } from "../controller/userController.js";
 import {
   isAdminAuthenticated,
@@ -19,6 +20,8 @@ const router = express.Router();
 router.route("/doctor/:id").get(getDoctorDetails);
 router.post("/patient/register", patientRegister);
 router.post("/login", login);
+
+router.delete("/doctor/:id", deleteDoctor);
 router.post("/admin/addnew", isAdminAuthenticated, addNewAdmin);
 router.post("/doctor/addnew", isAdminAuthenticated, addNewDoctor);
 router.get("/doctors", getAllDoctors);

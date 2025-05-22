@@ -66,6 +66,25 @@ export const getAvailableSlots = catchAsyncErrors(async (req, res, next) => {
     availableSlots,
   });
 });
+export const getMyAppointments = catchAsyncErrors(async (req, res, next) => {
+  const patientId = req.user._id; // يمكن استخدام بيانات المريض من التوكن أو الـ session
+
+  if (!patientId) {
+    return next(new ErrorHandler("Patient not found!", 404));
+  }
+
+  // البحث عن جميع المواعيد الخاصة بالمريض بناءً على الـ patientId
+  const appointments = await Appointment.find({ patientId });
+
+  if (!appointments || appointments.length === 0) {
+    return next(new ErrorHandler("No appointments found!", 404));
+  }
+
+  res.status(200).json({
+    success: true,
+    appointments,
+  });
+});
 export const postAppointment = catchAsyncErrors(async (req, res, next) => {
   const {
     name,

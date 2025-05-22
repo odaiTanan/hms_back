@@ -217,6 +217,23 @@ export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
       message: "Admin Logged Out Successfully.",
     });
 });
+export const deleteDoctor = catchAsyncErrors(async (req, res, next) => {
+  const doctorId = req.params.id;
+
+  // Check if the doctor exists
+  const doctor = await User.findById(doctorId);
+  if (!doctor) {
+    return next(new ErrorHandler("Doctor not found", 404));
+  }
+
+  // Delete the doctor
+  await User.deleteOne({ _id: doctorId });
+
+  res.status(200).json({
+    success: true,
+    message: "Doctor deleted successfully",
+  });
+});
 
 // Logout function for frontend patient
 export const logoutPatient = catchAsyncErrors(async (req, res, next) => {
