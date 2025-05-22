@@ -9,9 +9,11 @@ import messageRouter from "./router/messageRouter.js";
 import userRouter from "./router/userRouter.js";
 import appointmentRouter from "./router/appointmentRouter.js";
 import "./config/cloudinary.js";
-const app = express();
-config();
 
+config();
+const app = express();
+
+dbConnection();
 app.use(
   cors({
     origin: ["https://hms-front-two.vercel.app"],
@@ -36,8 +38,6 @@ app.get("/", (req, res) => {
 app.use("/api/v1/message", messageRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/appointment", appointmentRouter);
-
-dbConnection();
 
 app.use(errorMiddleware);
 export default app;
