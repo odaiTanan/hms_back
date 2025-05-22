@@ -14,7 +14,7 @@ config({ path: "./config.env" });
 
 app.use(
   cors({
-    origin: ['http://localhost:5173'],
+    origin: ["https://hms-front-two.vercel.app"],
     method: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })
