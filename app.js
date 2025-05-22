@@ -13,7 +13,6 @@ import "./config/cloudinary.js";
 config();
 const app = express();
 
-dbConnection();
 app.use(
   cors({
     origin: ["https://hms-front-two.vercel.app"],
