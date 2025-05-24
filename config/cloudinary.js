@@ -1,12 +1,12 @@
 import cloudinary from "cloudinary";
-import { config } from "dotenv";
+//import { config } from "dotenv";
 
-config(); // تحميل متغيرات البيئة
+//config(); // تحميل متغيرات البيئة
 
 cloudinary.v2.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+  cloud_name: "djmue5n4f",
+  api_key: "332632149665272",
+  api_secret: "IsJ5PE4tngjJ0W_ImZnHnDHsFHI",
 });
 
 export default cloudinary;

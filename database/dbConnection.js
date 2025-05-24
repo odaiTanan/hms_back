@@ -1,6 +1,7 @@
-/*import mongoose from "mongoose";
+import mongoose from "mongoose";
 
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI =
+  "mongodb+srv://odeartanan:odaitanan@cluster0.q65mrun.mongodb.net/";
 
 if (!MONGO_URI) {
   throw new Error("Please define the MONGO_URI environment variable");
@@ -28,4 +29,3 @@ export const dbConnection = async () => {
     throw err;
   }
 };
-*/
